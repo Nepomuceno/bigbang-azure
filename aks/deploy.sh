@@ -77,7 +77,7 @@ if [[ $DEPLOY_AKS == "true" ]]; then
   az deployment sub create -f ${scriptPath}/template/main.bicep -l $AZURE_REGION -n $AZURE_DEPLOY_NAME --parameters resGroupName=$AZURE_RESGRP location=$AZURE_REGION
 fi
 
-if [[ $USE_AKS == "true"]]; then
+if [[ $USE_AKS == "true" ]]; then
   clusterName=$(az deployment sub show --name $AZURE_DEPLOY_NAME --query "properties.outputs.clusterName.value" -o tsv)
   echo -e "\n\e[36m###\e[33m 🔌 Connecting to cluster '$clusterName'\e[39m"
   az aks get-credentials --overwrite-existing -g $AZURE_RESGRP -n $clusterName
