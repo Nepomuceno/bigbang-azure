@@ -1,7 +1,7 @@
 targetScope = 'subscription'
 
 param resGroupName string = 'bigbang'
-param location string = 'northeurope'
+param location string = 'uksouth'
 param suffix string = 'bigbang-${substring(uniqueString(resGroupName), 0, 4)}'
 
 param enableMonitoring bool = true
